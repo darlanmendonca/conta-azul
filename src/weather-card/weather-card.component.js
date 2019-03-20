@@ -20,7 +20,7 @@ class WeatherCard extends UIComponent {
         : 'hot'
 
     return `
-      <div class="weather-card">
+      <div class="ui-weather-card">
         <header>${props.city}, ${props.state}</header>
         <strong class="${temperatureClassName}">${props.temperature}º</strong>
         
