@@ -2,21 +2,26 @@
   "name": "conta-azul",
   "private": true,
   "scripts": {
-    "start": "webpack-cli",
+    "start": "webpack-cli --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Darlan Mendonça",
   "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^2.2.2",
+    "css-loader": "^2.1.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.11.0",
     "pug-html-loader": "^1.1.5",
+    "sass-loader": "^7.1.0",
+    "sass-webpack-plugin": "^1.0.3",
+    "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
-  },
-  "dependencies": {
-    "minimalist-ui": "git+https://github.com/darlanmendonca/minimalist.git#architecture"
   }
 }

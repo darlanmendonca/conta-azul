@@ -1,6 +1,6 @@
-import Header from './header'
-import Logotype from './logotype'
-import WeatherCard from './weather-card'
+import Header from './header/header.component.js'
+import Logotype from './logotype/logotype.component.js'
+import WeatherCard from './weather-card/weather-card.component.js'
 
 window.customElements.define('ui-header', Header)
 window.customElements.define('ui-logotype', Logotype)

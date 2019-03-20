@@ -1,0 +1,30 @@
+.weather-card {
+  background: white;
+  font-family: Helvetica;
+  color: #737c84;
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(55, 55, 55, .1);
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ebebeb;
+  
+  header {
+    line-height: 2em;
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  strong {
+    font-size: 5em;
+    font-weight: normal;
+  }
+
+  .cold {color: #69a3ff}
+  .normal {color: #ff9632}
+  .hot {color: #ed1946}
+
+  footer {
+    box-shadow: 0 0 10px rgba(241, 241, 241, .5);
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+}

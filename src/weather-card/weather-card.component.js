@@ -1,6 +1,7 @@
-import Minimalist from 'minimalist-ui/dist/src/minimalist/minimalist.class.js'
+import UIComponent from '../ui-component/ui-component.class.js'
+import './weather-card.style.scss'
 
-class WeatherCard extends Minimalist {
+class WeatherCard extends UIComponent {
   static get observedAttributes() {
     return [
       'city',
@@ -19,38 +20,6 @@ class WeatherCard extends Minimalist {
         : 'hot'
 
     return `
-      <style>
-        .weather-card {
-          background: white;
-          font-family: Helvetica;
-          color: #737c84;
-          display: inline-block;
-          box-shadow: 0 0 10px rgba(55, 55, 55, .1);
-          text-align: center;
-          border-radius: 5px;
-          border: 1px solid #ebebeb;
-        }
-
-        .weather-card header {
-          line-height: 2em;
-          border-bottom: 1px solid #ebebeb;
-        }
-
-        .weather-card strong {
-          font-size: 5em;
-          font-weight: normal;
-        }
-
-        .weather-card .cold {color: #69a3ff}
-        .weather-card .normal {color: #ff9632}
-        .weather-card .hot {color: #ed1946}
-
-        .weather-card footer {
-          box-shadow: 0 0 10px rgba(241, 241, 241, .5);
-          border-bottom-left-radius: inherit;
-          border-bottom-right-radius: inherit;
-        }
-      </style>
       <div class="weather-card">
         <header>${props.city}, ${props.state}</header>
         <strong class="${temperatureClassName}">${props.temperature}º</strong>

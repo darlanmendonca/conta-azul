@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Uglify = require('uglifyjs-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const SassPlugin = require('sass-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -27,6 +28,11 @@ module.exports = {
       notify: false,
       cors: true,
     }),
+    new SassPlugin('./src/index.scss', {
+      sourceMap: true,
+      sass: {outputStyle: 'compressed'},
+      autoprefixer: false,
+    }),
   ],
   module: {
     rules: [
@@ -36,6 +42,19 @@ module.exports = {
           'html-loader',
           'pug-html-loader',
         ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+            'style-loader',
+            'css-loader',
+            'sass-loader',
+        ]
+      },
+      {
+        test: /\.js(x)?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
       },
     ],
   }
