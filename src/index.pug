@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang='en')
 head
-  meta(charset="UTF-8")
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, user-scalable=no')
   title Weather Now
   link(rel='stylesheet' href='index.css')
-body
+body.hidden
   ui-header
     ui-logotype Weather Now
 
-  section
-    ui-weather-card(city='Nuuk' state='GL' temperature='-4')
+  .container
     ui-weather-card(city='Urubici' state='BR' temperature='19' humidity='.75' pressure='892')
+    ui-weather-card(city='Nuuk' state='GL' temperature='-4')
     ui-weather-card(city='Nairobi' state='KE' temperature='31')
   

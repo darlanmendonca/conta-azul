@@ -25,19 +25,21 @@ class WeatherCard extends UIComponent {
         <strong class="${temperatureClassName}">${props.temperature}º</strong>
         
         <footer>
-          ${
-            props.humidity
-              ? `<span>Humidity ${props.humidity * 100}%</span>`
-              : ''
-          }
+          <div class="details">
+            ${
+              props.humidity
+                ? `<h3>Humidity <span>${props.humidity * 100}%</span></h3>`
+                : ''
+            }
 
-          ${
-            props.pressure
-              ? `<span>Pressure ${props.pressure}hPa</span>`
-              : ''
-          }
+            ${
+              props.pressure
+                ? `<h3>Pressure <span>${props.pressure}hPa</span></h3>`
+                : ''
+            }
+          </div>
 
-          <div>Updated at ${this.lastUpdate}</div>
+          <small>Updated at ${this.lastUpdate}</small>
         </footer>
       </div>
     `

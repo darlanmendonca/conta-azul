@@ -6,3 +6,29 @@ html, body {
 body {
   margin: 0;
 }
+
+.hidden {display: none;}
+
+.container {
+  display: flex;
+  max-width: 850px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 45px 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  flex-direction: column;
+
+  ui-weather-card {
+    margin-top: 2em;
+  }
+
+  @media (min-width: 851px) {
+    flex-direction: row;
+    justify-content: space-between;
+    
+    ui-weather-card:nth-child(1) {order: 1}
+    ui-weather-card:nth-child(2) {order: 0}
+    ui-weather-card:nth-child(3) {order: 2}
+  }
+}
