@@ -27,8 +27,10 @@ class WeatherCard extends UIComponent {
     return `
       <div class="ui-weather-card">
         <header>${props.city}, ${props.state}</header>
-        <strong class="${temperatureClassName}">${props.temperature}º</strong>
-        <!-- <strong>
+        <strong class="${temperatureClassName} ${!props.loading ? '' : 'hidden'}">
+          ${props.temperature}º
+        </strong>
+        <strong class="${props.loading ? '' : 'hidden'}">
           <svg width='50px' height='50px' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="uil-ring-alt">
             <rect x="0" y="0" width="100" height="100" fill="none" class="bk"></rect>
             <circle cx="50" cy="50" r="40" stroke="rgba(255,255,255,0)" fill="none" stroke-width="10" stroke-linecap="round"></circle>
@@ -36,10 +38,10 @@ class WeatherCard extends UIComponent {
               <animate attributeName="stroke-dasharray" dur="1.5s" repeatCount="indefinite" values="188.25 62.75;1 250;188.25 62.75"></animate>
             </circle>
           </svg>
-        </strong> -->
+        </strong>
         
         <footer>
-          <div class="details">
+          <!-- <div class="details">
             ${
               props.humidity
                 ? `<h3>Humidity <span>${props.humidity}%</span></h3>`
@@ -51,9 +53,15 @@ class WeatherCard extends UIComponent {
                 ? `<h3>Pressure <span>${props.pressure}hPa</span></h3>`
                 : ''
             }
-          </div>
+          </div> -->
 
-          <small>Updated at ${this.lastUpdate}</small>
+          <small>
+            ${
+              props.loading
+                ? '—'
+                : `Updated at ${this.lastUpdate}`
+            }
+          </small>
         </footer>
       </div>
     `
@@ -83,16 +91,18 @@ class WeatherCard extends UIComponent {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        // this.props.loading = false
-        this.props.temperature = parseInt(data.main.temp)
-        
-        if (this.hasAttribute('humidity')) {
-          this.props.humidity = parseInt(data.main.humidity)
-        }
+        setTimeout(() => {
+          this.props.loading = false
+          this.props.temperature = parseInt(data.main.temp)
+          
+          if (this.hasAttribute('humidity')) {
+            this.props.humidity = parseInt(data.main.humidity)
+          }
 
-        if (this.hasAttribute('pressure')) {
-          this.props.pressure = parseInt(data.main.pressure)
-        }
+          if (this.hasAttribute('pressure')) {
+            this.props.pressure = parseInt(data.main.pressure)
+          }
+        }, 1000)
       })
   }
 }

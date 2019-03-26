@@ -45,7 +45,7 @@ class UIComponent extends window.HTMLElement {
         value
           ? element.setAttribute(name, String(value))
           : element.removeAttribute(name)
-        return value
+        return true
       }
     }
 
