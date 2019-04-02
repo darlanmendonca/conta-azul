@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "start": "webpack-cli --watch",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "storybook": "start-storybook -p 4000",
+    "build-storybook": "build-storybook"
   },
   "author": "Darlan Mendonça",
   "dependencies": {
@@ -15,6 +17,8 @@
     "@babel/core": "^7.4.0",
     "@babel/plugin-transform-modules-commonjs": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addons": "^5.0.6",
+    "@storybook/react": "^5.0.6",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "browser-sync-webpack-plugin": "^2.2.2",

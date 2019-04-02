@@ -6,7 +6,6 @@ import dayjs from 'dayjs'
 class WeatherCard extends Component {
   constructor() {
     super()
-
     this.state = {
       isLoading: true,
     }
