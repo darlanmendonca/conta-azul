@@ -86,23 +86,22 @@ class WeatherCard extends Component {
 
     fetch(url)
       .then(response => response.json())
+      .then(data => new Promise(resolve => setTimeout(() => resolve(data), 400)))
       .then(data => {
-        setTimeout(() => {
-          const newState = {
-            isLoading: false, 
-            temperature: parseInt(data.main.temp),
-          }
-          
-          if (this.props.humidity) {
-            newState.humidity = parseInt(data.main.humidity)
-          }
+        const newState = {
+          isLoading: false, 
+          temperature: parseInt(data.main.temp),
+        }
+        
+        if (this.props.humidity) {
+          newState.humidity = parseInt(data.main.humidity)
+        }
 
-          if (this.props.pressure) {
-            newState.pressure = parseInt(data.main.humidity)
-          }
+        if (this.props.pressure) {
+          newState.pressure = parseInt(data.main.pressure)
+        }
 
-          this.setState(newState)
-        }, 400)
+        this.setState(newState)
       })
   }
 }

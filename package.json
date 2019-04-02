@@ -6,8 +6,14 @@
     "test": "jest --coverage"
   },
   "author": "Darlan Mendonça",
+  "dependencies": {
+    "dayjs": "^1.8.12",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
@@ -15,21 +21,20 @@
     "chai": "^4.2.0",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.5.0",
+    "jest-fetch-mock": "^2.1.1",
     "node-sass": "^4.11.0",
     "pug-html-loader": "^1.1.5",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
     "sass-loader": "^7.1.0",
     "sass-webpack-plugin": "^1.0.3",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
-  },
-  "dependencies": {
-    "dayjs": "^1.8.12"
   }
 }
