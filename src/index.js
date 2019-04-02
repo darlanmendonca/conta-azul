@@ -1,9 +1,21 @@
-import Header from './header/header.component.js'
-import Logotype from './logotype/logotype.component.js'
-import WeatherCard from './weather-card/weather-card.component.js'
+import React, {Fragment} from 'react'
+import {render} from 'react-dom'
+import Header from './header'
+import Logotype from './logotype'
+import WeatherCard from './weather-card'
 
-window.customElements.define('ui-header', Header)
-window.customElements.define('ui-logotype', Logotype)
-window.customElements.define('ui-weather-card', WeatherCard)
+const WeatherNow = () => (
+  <Fragment>
+    <Header>
+      <Logotype />
+    </Header>
 
-document.body.classList.remove('hidden')
+    <div className='container'>
+      <WeatherCard city='Urubici' state='BR' humidity pressure />
+      <WeatherCard city='Nuuk' state='GL' />
+      <WeatherCard city='Nairobi' state='KE' />
+    </div>
+  </Fragment>
+)
+
+render(<WeatherNow />, window.app)
