@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Uglify = require('uglifyjs-webpack-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const SassPlugin = require('sass-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -19,13 +18,6 @@ module.exports = {
       filename: 'index.html',
       template: 'src/index.pug',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: 'src/**/*.svg', 
-        to: 'images', 
-        flatten: true,
-      },
-    ]), 
     new Uglify(),
     new BrowserSyncPlugin({
       host: 'localhost',
@@ -61,8 +53,11 @@ module.exports = {
       },
       {
         test: /\.js(x)?$/,
-        exclude: /node_modules/,
         loader: 'babel-loader',
+      },
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader',
       },
     ],
   }
